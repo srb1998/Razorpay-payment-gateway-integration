@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="col-6 pt-5  mx-auto">
+
+    <div class="text-center">
+        <img src="https://img.freepik.com/free-vector/coffee-love-foam-with-beans-cartoon-icon-illustration_138676-2575.jpg?w=740&t=st=1675111243~exp=1675111843~hmac=bb8609a4d9b4c3ade740c57952147281dd39e5018f08a8673072321abde876de"
+        style="height:200px" class="img-fluid img-reponsive text-center">
+        
+        <h4>Buy me a Coffee</h4>
+        </div>
+    
+    <form method="post">
+      {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input name="name" type="name" class="form-control" id="name"  placeholder="Enter name">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Enter Email</label>
+          <input name="email" type="email" class="form-control" id="email" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Enter Amount</label>
+          <input name="amount" type="number" class="form-control" id="amount" placeholder="Enter Amount">
+        </div>
+    
+        <button type="submit" class="btn btn-success btn-block">Submit</button>
+      </form>   
+</div>
+
+{% if payment %}
+
+<div class="container mx-auto text-center mt-4" v-if="name && amount">
+<form action="/success" method="POST">
+  <script
+      src="https://checkout.razorpay.com/v1/checkout.js"
+      data-key="rzp_test_L4Uy0WftnBqRlP" 
+      data-amount = "{{payment.amount}}"
+      data-currency="INR"
+      data-order_id="{{ payment.id }}"
+      data-buttontext="Pay with Razorpay"
+      data-name="Coffee Corp"
+      data-description="Thanks for buying me a coffee"
+      data-image="https://example.com/your_logo.jpg"
+      data-prefill.name="Sourabh"
+     
+      data-theme.color="#F37254"
+  ></script>
+  <input type="hidden" custom="Hidden Element" name="hidden">
+  </form>
+{% endif %}
+
+</div>
+{% endblock %}
