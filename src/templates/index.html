@@ -31,7 +31,6 @@
 </div>
 
 {% if payment %}
-
 <div class="container mx-auto text-center mt-4" v-if="name && amount">
 <form action="/success" method="POST">
   <script
@@ -51,6 +50,10 @@
   <input type="hidden" custom="Hidden Element" name="hidden">
   </form>
 {% endif %}
+
+<footer>
+  <p>Made with ❤️ by Sourabh</p>
+</footer>
 
 </div>
 {% endblock %}
