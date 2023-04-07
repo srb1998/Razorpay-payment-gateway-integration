@@ -31,16 +31,16 @@
 </div>
 
 {% if payment %}
-<div class="container mx-auto text-center mt-4" v-if="name && amount">
+<div class="container mx-auto text-center mt-4 payment" v-if="name && amount">
 <form action="/success" method="POST">
   <script
       src="https://checkout.razorpay.com/v1/checkout.js"
-      data-key="rzp_test_L4Uy0WftnBqRlP" 
+      data-key="rzp_test_L4Uy0WftnBqRlP"
       data-amount = "{{payment.amount}}"
       data-currency="INR"
       data-order_id="{{ payment.id }}"
       data-buttontext="Pay with Razorpay"
-      data-name="Coffee Corp"
+      data-name="Sourabh Corp"
       data-description="Thanks for buying me a coffee"
       data-image="https://example.com/your_logo.jpg"
       data-prefill.name="Sourabh"
@@ -50,10 +50,6 @@
   <input type="hidden" custom="Hidden Element" name="hidden">
   </form>
 {% endif %}
-
-<footer>
-  <p>Made with ❤️ by Sourabh</p>
-</footer>
 
 </div>
 {% endblock %}
