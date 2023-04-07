@@ -134,9 +134,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'src', 'static'),
 ]
 
-
-
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 
 # Default primary key field type
